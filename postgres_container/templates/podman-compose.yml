@@ -1,0 +1,14 @@
+version: "3"
+services:
+  db:
+    container_name: db_postgres__${port}
+    restart: on-failure
+    build:
+      context: ./
+      dockerfile: podmanfile
+    ports:
+      - ${port}:5432
+    volumes:
+      - ./data/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
