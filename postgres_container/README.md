@@ -2,7 +2,7 @@
 
 ## how to use
 
-Create a json config file with the following properties:
+Create a json config file with the following schema:
 
 ```
 {
@@ -20,7 +20,7 @@ cargo run -- ./path/to/config
 
 ## selinux
 
-if you are using SELinux, apply container labels to `./data` directory:
+Apply container labels to `./data` directory:
 
 ```
 chcon -t container_file_t <directory from config>/data

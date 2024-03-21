@@ -5,7 +5,7 @@ use tokio::fs;
 
 #[derive(Clone, Serialize, Deserialize, Debug)]
 pub struct Config {
-    pub port: u16,
+    pub port: usize,
     pub directory: path::PathBuf,
     pub postgres_password: String,
 }
