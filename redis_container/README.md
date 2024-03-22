@@ -8,21 +8,22 @@ Create a json config file with the following schema:
 
 ```
 {
-	"port": <container port>,
-	"directory": <directory for generated templates>,
-	"memory_policy": <redis eviction policy>,
-	"maxmemory": <cache size in terms like "2048mb">,
-	"maxmemory_samples": <number of memory samples>
-}
-```
-
-```
-{
 	"port": number,
 	"directory": string,
 	"memory_policy": string,
 	"maxmemory": string,
 	"maxmemory_samples": number
+}
+```
+
+
+```
+{
+	"port": <container port>,
+	"directory": <directory for generated templates>,
+	"memory_policy": <redis eviction policy>,
+	"maxmemory": <cache size in terms like "2048mb">,
+	"maxmemory_samples": <number of memory samples>
 }
 ```
 
