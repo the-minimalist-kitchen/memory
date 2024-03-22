@@ -1,8 +1,4 @@
-// async
-
-// load config
-use std::env;
-use std::path;
+use std::{env, path};
 use tokio::fs;
 
 mod config;
@@ -50,7 +46,7 @@ async fn generate_podman_compose(config: &Config) -> Result<(), String> {
     let podman_compose = match fs::read_to_string("../templates/podman-compose.yml").await {
         Ok(contents) => contents
             .replace("${port}", &config.port.to_string())
-            .replace("${POSTGRES_PASSWORD}", &config.postgres_password),
+            .replace("${postgres_password}", &config.postgres_password),
         Err(e) => return Err(e.to_string()),
     };
 

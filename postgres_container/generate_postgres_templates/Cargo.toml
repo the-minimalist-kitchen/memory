@@ -1,5 +1,5 @@
 [package]
-name = "generate_templates"
+name = "generate_postgres_templates"
 version = "0.1.0"
 edition = "2021"
 
