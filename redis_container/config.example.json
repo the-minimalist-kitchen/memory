@@ -1,0 +1,6 @@
+{
+	"port": 4005,
+	"directory": "./template_directory",
+	"maxmemory": "2048mb",
+	"maxmemory_samples": 5
+}
