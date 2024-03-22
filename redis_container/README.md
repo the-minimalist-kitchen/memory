@@ -16,7 +16,6 @@ Create a json config file with the following schema:
 }
 ```
 
-
 ```
 {
 	"port": <container port>,
