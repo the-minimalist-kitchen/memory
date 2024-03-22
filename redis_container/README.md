@@ -1,6 +1,8 @@
 # redis_container
 
-## how to use
+## How to use
+
+### Create a config json file
 
 Create a json config file with the following schema:
 
@@ -8,9 +10,23 @@ Create a json config file with the following schema:
 {
 	"port": <container port>,
 	"directory": <directory for generated templates>,
-	"postgres_password": <required for postgres image to run>
+	"memory_policy": <redis eviction policy>,
+	"maxmemory": <cache size in terms like "2048mb">,
+	"maxmemory_samples": <number of memory samples>
 }
 ```
+
+```
+{
+	"port": number,
+	"directory": string,
+	"memory_policy": string,
+	"maxmemory": string,
+	"maxmemory_samples": number
+}
+```
+
+### Generate templates from config
 
 Run `generate_templates`
 
@@ -18,7 +34,7 @@ Run `generate_templates`
 cargo run -- ./path/to/config
 ```
 
-## selinux
+### Apply SELinux labels
 
 Apply container labels to `./data` directory:
 
@@ -26,8 +42,16 @@ Apply container labels to `./data` directory:
 chcon -t container_file_t <directory from config>/data
 ```
 
+### Build containers with podman
+
+Build, up, and down containers using `podman-compose`:
+
+```
+podman-compose -f ./<config.directory>/podman-compose.yml build
+podman-compose -f ./<config.directory>/podman-compose.yml up -d
+podman-compose -f ./<config.directory>/podman-compose.yml down
+```
+
 ## license
 
 BSD 3-Clause License
-
-
