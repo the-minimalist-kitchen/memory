@@ -7,7 +7,7 @@ use tokio::fs;
 pub struct Config {
     pub port: usize,
     pub directory: path::PathBuf,
-    pub postgres_password: String,
+    pub memory_policy: String,
     pub maxmemory: String,
     pub maxmemory_samples: usize,
 }

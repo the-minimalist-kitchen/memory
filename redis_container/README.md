@@ -1,16 +1,8 @@
-# postgres_container
+# redis_container
 
 ## how to use
 
 Create a json config file with the following schema:
-
-```
-{
-	"port": number,
-	"directory": string,
-	"postgres_password": string
-}
-```
 
 ```
 {
@@ -20,18 +12,18 @@ Create a json config file with the following schema:
 }
 ```
 
-Run the following command in the `./generate_postgres_templates` directory:
+Run `generate_templates`
 
 ```
 cargo run -- ./path/to/config
 ```
 
-## SELinux
+## selinux
 
 Apply container labels to `./data` directory:
 
 ```
-chcon -R -t container_file_t <directory from config>/data
+chcon -t container_file_t <directory from config>/data
 ```
 
 ## license

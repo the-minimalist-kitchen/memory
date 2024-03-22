@@ -74,8 +74,12 @@ async fn generate_podman_compose(config: &Config) -> Result<(), String> {
 async fn generate_redis_conf(config: &Config) -> Result<(), String> {
     let podman_compose = match fs::read_to_string("../templates/redis.conf").await {
         Ok(contents) => contents
-            .replace("${maxmemory}", &config.maxmemory.to_string())
-            .replace("${maxmemory_samples}", &config.maxmemory.to_string()),
+            .replace("${memory_policy}", &config.memory_policy)
+            .replace("${maxmemory}", &config.maxmemory)
+            .replace(
+                "${maxmemory_samples}",
+                &config.maxmemory_samples.to_string(),
+            ),
         Err(e) => return Err(e.to_string()),
     };
 

@@ -1,6 +1,7 @@
 {
 	"port": 4005,
-	"directory": "./template_directory",
+	"directory": "./test_container",
+	"memory_policy": "volatile-lru",
 	"maxmemory": "2048mb",
 	"maxmemory_samples": 5
 }
