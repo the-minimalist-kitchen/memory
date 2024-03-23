@@ -12,12 +12,15 @@ services:
       - ${TMK3_POSTGRES_DIR}:/var/lib/postgresql/data/
     environment:
       - POSTGRES_PASSWORD=${TMK3_POSTGRES_PASSWORD}
-  
   cache:
     container_name: tmk3_redis__${TMK3_REDIS_PORT}
+    restart: on-failure
     build:
       context: ./
       dockerfile: ./redis.podmanfile
+      args:
+        - maxmemory: ${TMK3_REDIS_MAXMEMORY}
+        - maxmemory-policy: ${TMK3_REDIS_MAXMEMORY_POLICY}
     ports:
       - ${TMK3_REDIS_PORT}:6379
     volumes:
