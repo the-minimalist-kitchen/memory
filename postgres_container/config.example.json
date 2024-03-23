@@ -1,5 +1,0 @@
-{
-  "port": 4010,
-  "directory": "./test_container",
-  "postgres_password": "magicbeans"
-}
