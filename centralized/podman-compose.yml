@@ -1,23 +1,23 @@
 version: "3"
 services:
   db:
-    container_name: tmk3_postgres__${TMK3_REDIS_PORT}
+    container_name: tmk3_postgres__${TMK3_POSTGRES_PORT}
     restart: on-failure
     build:
       context: ./
-      dockerfile: ./redis.podmanfile
+      dockerfile: ./postgres.podmanfile
     ports:
-      - ${TMK3_REDIS_PORT}:5432
+      - ${TMK3_POSTGRES_PORT}:5432
     volumes:
       - ${TMK3_POSTGRES_DIR}:/var/lib/postgresql/data/
     environment:
       - POSTGRES_PASSWORD=${TMK3_POSTGRES_PASSWORD}
   
   cache:
-    container_name: tmk3_redis__${port}
+    container_name: tmk3_redis__${TMK3_REDIS_PORT}
     build:
       context: ./
-      dockerfile: ./posgres.podmanfile
+      dockerfile: ./redis.podmanfile
     ports:
       - ${TMK3_REDIS_PORT}:6379
     volumes:
