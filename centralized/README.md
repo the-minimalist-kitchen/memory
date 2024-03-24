@@ -20,8 +20,6 @@ TMK3_POSTGRES_DIR=<directory>
 TMK3_POSTGRES_PASSWORD=<string>
 TMK3_REDIS_PORT=<port number>
 TMK3_REDIS_DIR=<directory>
-TMK3_REDIS_MAXMEMORY=<number bytes as human-readable ie: 2048mb, 100mb>
-TMK3_REDIS_MAXMEMORY_POLICY=<redis memory policy>
 ```
 
 example `.env`
@@ -32,9 +30,9 @@ TMK3_POSTGRES_DIR=./postgres_data
 TMK3_POSTGRES_PASSWORD=magicbeans
 TMK3_REDIS_PORT=4010
 TMK3_REDIS_DIR=./redis_data
-TMK3_REDIS_MAXMEMORY=100mb
-TMK3_REDIS_MAXMEMORY_POLICY="allkeys-lru"
 ```
+
+Create a `redis.conf` file and follow examples in the [redis config docs](https://redis.io/docs/management/config-file/) to modulate the redis container's behavior.
 
 ### Podman
 

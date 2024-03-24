@@ -1,16 +1,11 @@
 FROM redis:alpine
 
-VOLUME [ "/usr/local/etc/redis" ]
+COPY ./redis.conf /usr/local/etc/redis/redis.conf
 
-RUN touch /usr/local/etc/redis/redis.conf
-
-RUN echo \
-"maxmemory ${maxmemory}\n \
-maxmemory-policy ${maxmemory_policy}\n" \
-> /usr/local/etc/redis/redis.conf
-
-CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+VOLUME [ "/data" ]
 
 EXPOSE 6379
 
-VOLUME [ "/data" ]
+CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+
+
