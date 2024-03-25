@@ -22,3 +22,4 @@ services:
       - ${TMK3_REDIS_PORT}:6379
     volumes:
       - ${TMK3_REDIS_DIR}:/data
+      - ${TMK3_REDIS_CONF}:/usr/local/etc/redis/redis.conf:ro
