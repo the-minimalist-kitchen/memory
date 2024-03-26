@@ -1,0 +1,8 @@
+## DANGEROUS VARIABLES
+.env
+!example.env
+
+## DATA
+postgres_data/
+redis_data/
+
