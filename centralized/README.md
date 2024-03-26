@@ -37,7 +37,7 @@ maxmemory-policy allkeys-lru
 
 ### Build directories
 
-If you do not work on SELinux enabled systems, feel free to skip this section.
+If your system does not use SELinux, feel free to skip this section.
 
 Create `postgres_data` and `redis_data` directories.
 
@@ -45,7 +45,7 @@ Create `postgres_data` and `redis_data` directories.
 mkdir ./postgres_data ./redis_data
 ```
 
-Add SELinux labels if applicable.
+Add SELinux labels.
 
 ```
 chcon -R -t container_file_t ./postgres_data ./redis_data ./redis.conf

@@ -8,13 +8,11 @@
 # LOAD ENV FILE
 case $1 in
 	*.env)
-		#mkdir $1
-		echo $1
+		# echo $1
 		source $1
 	;;
 	*)
-		#mkdir $script_dir/$1
-		echo "arg is not .env file"
+		# echo "arg is not .env file"
 		exit 1
 	;;
 esac
